@@ -35,6 +35,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
+  intl_phone_field: ^3.2.0
 
 dev_dependencies:
   flutter_test:
@@ -58,6 +59,8 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
+  assets:
+    - assets/onboarding_images/
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
@@ -74,17 +77,27 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
-  #
+  fonts:
+    - family: Gentona
+      fonts:
+        - asset: assets/fonts/Gentona-Bold.ttf 
+        - asset: assets/fonts/Gentona-BoldItalic.ttf 
+        - asset: assets/fonts/Gentona-Book.ttf 
+        - asset: assets/fonts/Gentona-BookItalic.ttf 
+        - asset: assets/fonts/Gentona-ExtraBold.ttf 
+        - asset: assets/fonts/Gentona-ExtraBoldItalic.ttf 
+        - asset: assets/fonts/Gentona-ExtraLight.ttf 
+        - asset: assets/fonts/Gentona-ExtraLightItalic.ttf 
+        - asset: assets/fonts/Gentona-Heavy.ttf 
+        - asset: assets/fonts/Gentona-HeavyItalic.ttf 
+        - asset: assets/fonts/Gentona-Light.ttf 
+        - asset: assets/fonts/Gentona-LightItalic.ttf 
+        - asset: assets/fonts/Gentona-Medium.ttf 
+        - asset: assets/fonts/Gentona-MediumItalic.ttf 
+        - asset: assets/fonts/Gentona-SemiBold.ttf 
+        - asset: assets/fonts/Gentona-SemiBoldItalic.ttf 
+        - asset: assets/fonts/Gentona-Thin.ttf 
+        - asset: assets/fonts/Gentona-ThinItalic.ttf
+        
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
