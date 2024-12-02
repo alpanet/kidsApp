@@ -1,5 +1,6 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:kids_app/register/register_gathering.dart';
+import 'package:kids_app/ui/screens/register/register_gathering.dart';
 import 'package:kids_app/theme.dart';
 
 class OnboardingPage4 extends StatelessWidget {
@@ -79,12 +80,13 @@ class OnboardingPage4 extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20.0)),
                   child: TextButton(
                     onPressed: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const RegisterGathering(),
-                        ),
-                      );
+                      // Navigator.pushReplacement(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (context) => const RegisterGathering(),
+                      //   ),
+                      // );
+                      context.router.replaceNamed('register');
                     },
                     style: TextButton.styleFrom(
                       padding: const EdgeInsets.symmetric(
