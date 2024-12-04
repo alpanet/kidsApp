@@ -70,4 +70,25 @@ class AppTheme {
         color: primaryTextColor,
         fontFamily: 'Gentona',
       );
+  
+  static TextStyle get mainpageTitle => const TextStyle(
+        fontSize: 20,
+        fontWeight: FontWeight.normal,
+        color: Color.fromARGB(255, 0, 0, 0),
+        fontFamily: 'Gentona',
+      );
+
+  static TextStyle get mainpageSubTitle => const TextStyle(
+        fontSize: 12,
+        fontWeight: FontWeight.normal,
+        color: Color.fromARGB(255, 0, 0, 0),
+        fontFamily: 'Gentona',
+      );
+  
+  static TextStyle get mainpageCategoryTitle => const TextStyle(
+        fontSize: 20,
+        fontWeight: FontWeight.bold,
+        color: Color.fromARGB(255, 0, 0, 0),
+        fontFamily: 'Gentona',
+      );
 }

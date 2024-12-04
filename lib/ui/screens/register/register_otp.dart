@@ -1,9 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:kids_app/theme.dart';
-import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:kids_app/ui/components/button_component.dart';
 import 'package:kids_app/ui/components/countdown_component.dart';
 import 'package:kids_app/ui/components/otp_component.dart';
@@ -13,6 +11,7 @@ class RegisterOtp extends StatefulWidget {
   const RegisterOtp({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _RegisterOtpState createState() => _RegisterOtpState();
 }
 
@@ -95,7 +94,9 @@ class _RegisterOtpState extends State<RegisterOtp> {
               const SizedBox(height: 10),
               ButtonComponent(
                 text: "İleri",
-                onPressed: _onProceedPressed,
+                onPressed: () {
+                  context.router.replaceNamed('mainpage');
+                },
               ),
             ],
           ),

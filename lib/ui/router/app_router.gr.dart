@@ -14,6 +14,7 @@ import 'package:kids_app/ui/apps/splash_app.dart' as _i5;
 import 'package:kids_app/ui/screens/onboarding/onboardingScreen.dart' as _i2;
 import 'package:kids_app/ui/screens/register/register_gathering.dart' as _i3;
 import 'package:kids_app/ui/screens/register/register_otp.dart' as _i4;
+import 'package:kids_app/ui/screens/main/main_page.dart' as _i7;
 
 /// generated route for
 /// [_i1.MainScreen]
@@ -106,6 +107,25 @@ class SplashRoute extends _i6.PageRouteInfo<void> {
     name,
     builder: (data) {
       return const _i5.SplashApp();
+    },
+  );
+}
+
+/// generated route for
+/// [_i7.MainPage]
+class MainPage extends _i6.PageRouteInfo<void> {
+  const MainPage({List<_i6.PageRouteInfo>? children})
+      : super(
+          MainPage.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'mainpage';
+
+  static _i6.PageInfo page = _i6.PageInfo(
+    name,
+    builder: (data) {
+      return const _i7.MainPage();
     },
   );
 }

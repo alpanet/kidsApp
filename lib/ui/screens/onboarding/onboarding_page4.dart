@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:kids_app/ui/screens/register/register_gathering.dart';
 import 'package:kids_app/theme.dart';
 
 class OnboardingPage4 extends StatelessWidget {
