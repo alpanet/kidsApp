@@ -4,8 +4,8 @@ import 'package:kids_app/theme.dart';
 import 'package:kids_app/ui/components/movie_card_component.dart';
 
 @RoutePage()
-class MainPage extends StatelessWidget {
-  const MainPage({super.key});
+class WatchlistPage extends StatelessWidget {
+  const WatchlistPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +50,7 @@ class MainPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Hoş Geldiniz',
+                      'Hoş 2222Geldiniz',
                       style: AppTheme.onboardingSubTitle,
                     ),
                     Text(
@@ -89,77 +89,6 @@ class MainPage extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
                   children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFCDD7B6),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Uygulamayı Özelleştir',
-                              style: AppTheme.mainpageTitle,
-                            ),
-                            const SizedBox(height: 8),
-                            Text(
-                              'Çocuğunuz için en iyisini siz seçin ve izlemeye başlayın.',
-                              style: AppTheme.mainpageSubTitle,
-                            ),
-                            const SizedBox(height: 20),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                // Yeni Kategori Butonu
-                                ElevatedButton.icon(
-                                  onPressed: () {
-                                    print("Yeni Kategori tıklandı");
-                                  },
-                                  icon: const Icon(Icons.layers, size: 20),
-                                  label: const Text('Yeni Kategori'),
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: const Color(0xFF6D8F5E),
-                                    foregroundColor: Colors.white,
-                                    padding: const EdgeInsets.symmetric(
-                                      vertical: 10,
-                                      horizontal: 20,
-                                    ),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(12),
-                                    ),
-                                  ),
-                                ),
-                                // Yeni İzlem Butonu
-                                ElevatedButton.icon(
-                                  onPressed: () {
-                                    print("Yeni İzlem tıklandı");
-                                  },
-                                  icon: const Icon(Icons.tv, size: 20),
-                                  label: const Text('Yeni İzlem'),
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.white,
-                                    foregroundColor: const Color(0xFF4A4A4A),
-                                    side: const BorderSide(
-                                      color: Color(0xFF4A4A4A),
-                                      width: 1,
-                                    ),
-                                    padding: const EdgeInsets.symmetric(
-                                      vertical: 10,
-                                      horizontal: 20,
-                                    ),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(12),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
                     const SizedBox(height: 15),
                     Align(
                       alignment: Alignment.centerLeft,
