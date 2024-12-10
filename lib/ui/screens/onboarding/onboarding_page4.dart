@@ -66,25 +66,19 @@ class OnboardingPage4 extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: 20.0),
               child: Align(
                 alignment: Alignment
-                    .bottomCenter, // Ortada hizalamak için bottomCenter kullanıyoruz
+                    .bottomCenter,
                 child: Container(
                   decoration: BoxDecoration(
-                      color: Colors.white, // Şeffaf arka plan
+                      color: Colors.white,
                       shape:
-                          BoxShape.rectangle, // Yuvarlak şekil için gerekirse
+                          BoxShape.rectangle,
                       border: Border.all(
-                        color: Colors.white, // Beyaz border
-                        width: 2.0, // Border kalınlığı
+                        color: Colors.white,
+                        width: 2.0,
                       ),
                       borderRadius: BorderRadius.circular(20.0)),
                   child: TextButton(
                     onPressed: () {
-                      // Navigator.pushReplacement(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder: (context) => const RegisterGathering(),
-                      //   ),
-                      // );
                       context.router.replaceNamed('register');
                     },
                     style: TextButton.styleFrom(
@@ -92,7 +86,7 @@ class OnboardingPage4 extends StatelessWidget {
                         horizontal: 30.0,
                         vertical: 8.0,
                       ),
-                      backgroundColor: Colors.transparent, // Arka plan rengi
+                      backgroundColor: Colors.transparent,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       ),

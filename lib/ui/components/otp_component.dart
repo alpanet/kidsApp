@@ -52,15 +52,13 @@ class _OtpInputComponentState extends State<OtpInputComponent> {
             ),
             onChanged: (value) {
               widget.otpList[index] =
-                  value; // Update OTP list when input changes
+                  value;
               widget.onOtpChanged(
-                  widget.otpList); // Notify parent to update the list
+                  widget.otpList);
 
-              // Move to the next field if the current field is filled
               if (value.isNotEmpty && index < 4) {
                 FocusScope.of(context).requestFocus(_focusNodes[index + 1]);
               }
-              // Move to the previous field if the user deletes the value
               if (value.isEmpty && index > 0) {
                 FocusScope.of(context).requestFocus(_focusNodes[index - 1]);
               }

@@ -95,11 +95,11 @@ class OnboardingPage1 extends StatelessWidget {
                 child: Container(
                   decoration: BoxDecoration(
                     color: Colors
-                        .transparent, // İçindeki icon için şeffaf arka plan
-                    shape: BoxShape.circle, // Yuvarlak şekil
+                        .transparent,
+                    shape: BoxShape.circle,
                     border: Border.all(
-                      color: Colors.white, // Beyaz border rengi
-                      width: 2.0, // Border kalınlığı
+                      color: Colors.white,
+                      width: 2.0,
                     ),
                   ),
                   child: IconButton(

@@ -71,7 +71,6 @@ class RegisterGathering extends StatelessWidget {
                     ),
                     recognizer: TapGestureRecognizer()
                       ..onTap = () {
-                        // TODO: Redirect to kullanıcı sözleşmesi
                         print('Kullanıcı sözleşmesini clicked');
                       },
                   ),

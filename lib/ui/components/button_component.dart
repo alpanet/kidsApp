@@ -33,7 +33,7 @@ class ButtonComponent extends StatelessWidget {
         text,
         style: textStyle ??
             const TextStyle(
-              fontSize: 16,
+              fontSize: 26,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),

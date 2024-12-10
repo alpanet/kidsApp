@@ -13,12 +13,12 @@ class AppRouter extends RootStackRouter {
       AutoRoute(page: RegisterGathering.page, path: "register"),
       AutoRoute(page: RegisterOtp.page, path: "registerOtp"),
       AutoRoute(page: MainPage.page, path: "mainpage"),
-      AutoRoute(page: WatchlistPage.page, path: "watchlistPage")
+      AutoRoute(page: WatchlistPage.page, path: "watchlistPage"),
+      AutoRoute(page: CategoryMainPage.page, path: "categoryMainPage")
     ]),
   ];
 
   @override
   List<AutoRouteGuard> get guards => [
-        // optionally add root guards here
       ];
 }

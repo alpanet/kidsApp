@@ -15,6 +15,7 @@ import 'package:kids_app/ui/screens/onboarding/onboardingScreen.dart' as _i2;
 import 'package:kids_app/ui/screens/register/register_gathering.dart' as _i3;
 import 'package:kids_app/ui/screens/register/register_otp.dart' as _i4;
 import 'package:kids_app/ui/screens/watchList/watchlist_page.dart' as _i6;
+import 'package:kids_app/ui/screens/category/category_main_page.dart' as _i8;
 
 /// generated route for
 /// [_i1.MainPage]
@@ -126,6 +127,24 @@ class WatchlistPage extends _i7.PageRouteInfo<void> {
     name,
     builder: (data) {
       return const _i6.WatchlistPage();
+    },
+  );
+}
+/// generated route for
+/// [_i8.CategoryMainPage]
+class CategoryMainPage extends _i7.PageRouteInfo<void> {
+  const CategoryMainPage({List<_i7.PageRouteInfo>? children})
+      : super(
+          CategoryMainPage.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CategoryMainPage';
+
+  static _i7.PageInfo page = _i7.PageInfo(
+    name,
+    builder: (data) {
+      return const _i8.CategoryMainPage();
     },
   );
 }

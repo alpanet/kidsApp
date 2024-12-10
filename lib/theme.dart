@@ -53,7 +53,7 @@ class AppTheme {
   static TextStyle get primaryButtonText => const TextStyle(
         fontSize: 26,
         color: secondTextColor,
-        fontWeight: FontWeight.normal, // Yazı kalınlığı
+        fontWeight: FontWeight.normal,
         fontFamily: 'Gentona',
       );
 
