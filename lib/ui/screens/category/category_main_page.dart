@@ -43,10 +43,11 @@ class CategoryMainPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.all(24.0),
+            padding:
+                const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                // Geri butonu, sola yaslanmış
                 Container(
                   decoration: BoxDecoration(
                     color: Colors.transparent,
@@ -67,6 +68,16 @@ class CategoryMainPage extends StatelessWidget {
                     },
                   ),
                 ),
+                Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.18),
+                    child: Text(
+                      'Kategori',
+                      style: AppTheme
+                          .generalMenuTitle,
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
@@ -84,8 +95,7 @@ class CategoryMainPage extends StatelessWidget {
                 children: [
                   Positioned.fill(
                     child: Padding(
-                      padding: const EdgeInsets.only(
-                          bottom: 60),
+                      padding: const EdgeInsets.only(bottom: 60),
                       child: ListView.builder(
                         padding: const EdgeInsets.all(18.0),
                         itemCount: categorys.length,
