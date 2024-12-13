@@ -15,8 +15,6 @@ class _RouterAppState extends ConsumerState<RouterApp> {
   void initState() {
     super.initState();
     _appRouter = AppRouter();
-
-    // print(fcmToken);
   }
 
   @override

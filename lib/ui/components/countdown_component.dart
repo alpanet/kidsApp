@@ -53,7 +53,7 @@ class _CountdownComponentState extends State<CountdownComponent> {
       onComplete: () {
         debugPrint('Countdown Ended');
         widget
-            .onCompleteCallback(); // Notify the parent when the timer finishes
+            .onCompleteCallback();
       },
       timeFormatterFunction: (defaultFormatterFunction, duration) {
         if (duration.inSeconds == 0) {

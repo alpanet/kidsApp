@@ -16,6 +16,7 @@ import 'package:kids_app/ui/screens/register/register_gathering.dart' as _i3;
 import 'package:kids_app/ui/screens/register/register_otp.dart' as _i4;
 import 'package:kids_app/ui/screens/watchList/watchlist_page.dart' as _i6;
 import 'package:kids_app/ui/screens/category/category_main_page.dart' as _i8;
+import 'package:kids_app/ui/screens/category/category_new_category_page.dart' as _i9;
 
 /// generated route for
 /// [_i1.MainPage]
@@ -145,6 +146,25 @@ class CategoryMainPage extends _i7.PageRouteInfo<void> {
     name,
     builder: (data) {
       return const _i8.CategoryMainPage();
+    },
+  );
+}
+
+/// generated route for
+/// [_i9.CategoryNewCategoryPage]
+class CategoryNewCategoryPage extends _i7.PageRouteInfo<void> {
+  const CategoryNewCategoryPage({List<_i7.PageRouteInfo>? children})
+      : super(
+          CategoryNewCategoryPage.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CategoryNewCategoryPage';
+
+  static _i7.PageInfo page = _i7.PageInfo(
+    name,
+    builder: (data) {
+      return const _i9.CategoryNewCategoryPage();
     },
   );
 }

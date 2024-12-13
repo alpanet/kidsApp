@@ -47,7 +47,6 @@ class CategoryMainPage extends StatelessWidget {
                 const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
             child: Row(
               children: [
-                // Geri butonu, sola yaslanmış
                 Container(
                   decoration: BoxDecoration(
                     color: Colors.transparent,
@@ -70,11 +69,11 @@ class CategoryMainPage extends StatelessWidget {
                 ),
                 Expanded(
                   child: Padding(
-                    padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.18),
+                    padding: EdgeInsets.only(
+                        left: MediaQuery.of(context).size.width * 0.18),
                     child: Text(
                       'Kategori',
-                      style: AppTheme
-                          .generalMenuTitle,
+                      style: AppTheme.generalMenuTitle,
                     ),
                   ),
                 ),
@@ -130,7 +129,7 @@ class CategoryMainPage extends StatelessWidget {
                         child: ButtonComponent(
                           text: "Yeni Kategori",
                           onPressed: () {
-                            context.router.replaceNamed('registerOtp');
+                            context.router.replaceNamed('categoryNewCategoryPage');
                           },
                         ),
                       ),
