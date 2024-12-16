@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:kids_app/theme.dart';
+import 'package:kids_app/ui/components/button_component.dart';
 import 'package:kids_app/ui/components/movie_card_component.dart';
 
 @RoutePage()
@@ -9,31 +10,31 @@ class WatchlistPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Map<String, String>> movies = [
-      {
-        'title': 'The Mystery of the Missing Marshmallows',
-        'description':
-            'A deliciously puzzling adventure where young sleuths must track down the trail of missing marshmallows from the campfire, unraveling clues and discovering tasty secrets along the way.',
-        'duration': '90 dk',
-        'imageUrl':
-            'https://i.ytimg.com/vi/ZvodMMy43B8/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDJ-bW4ncecTMmMeS4Io8VVjxAjyQ',
-      },
-      {
-        'title': 'Adventures in the Candyland',
-        'description':
-            'Join the magical journey through Candyland where surprises await at every corner!',
-        'duration': '120 dk',
-        'imageUrl':
-            'https://i.ytimg.com/vi/ZvodMMy43B8/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDJ-bW4ncecTMmMeS4Io8VVjxAjyQ',
-      },
-      {
-        'title': 'Treasure Hunt in the Jungle',
-        'description':
-            'Follow the treasure map to uncover mysteries and find hidden treasures in the jungle.',
-        'duration': '110 dk',
-        'imageUrl':
-            'https://i.ytimg.com/vi/ZvodMMy43B8/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDJ-bW4ncecTMmMeS4Io8VVjxAjyQ',
-      },
+    final List<Map<String, String>> categorys = [
+      // {
+      //   "title": "Mystery of the Lost Compass",
+      //   "description":
+      //       "Follow a group of adventurers as they journey through enchanted forests to find a legendary compass said to point towards untold treasures.",
+      //   "duration": "105 dk",
+      //   "imageUrl":
+      //       "https://i.ytimg.com/vi/ZvodMMy43B8/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDJ-bW4ncecTMmMeS4Io8VVjxAjyQ",
+      // },
+      // {
+      //   "title": "The Galactic Explorers",
+      //   "description":
+      //       "A thrilling space odyssey where a team of astronauts uncover a hidden alien civilization and their secrets to interstellar travel.",
+      //   "duration": "120 dk",
+      //   "imageUrl":
+      //       "https://i.ytimg.com/vi/ZvodMMy43B8/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDJ-bW4ncecTMmMeS4Io8VVjxAjyQ",
+      // },
+      // {
+      //   "title": "The Chocolate Heist",
+      //   "description":
+      //       "A group of quirky friends plots to steal the world's largest chocolate sculpture before it melts in a summer heatwave.",
+      //   "duration": "95 dk",
+      //   "imageUrl":
+      //       "https://i.ytimg.com/vi/ZvodMMy43B8/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDJ-bW4ncecTMmMeS4Io8VVjxAjyQ",
+      // },
     ];
 
     return Scaffold(
@@ -42,35 +43,40 @@ class WatchlistPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.all(24.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            padding:
+                const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
+            child: Stack(
+              alignment: Alignment.center,
               children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Hoş 2222Geldiniz',
-                      style: AppTheme.onboardingSubTitle,
-                    ),
-                    Text(
-                      'Profile182',
-                      style: AppTheme.generalTitle.copyWith(
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.transparent,
+                      shape: BoxShape.circle,
+                      border: Border.all(
                         color: Colors.white,
-                        fontSize: 22,
+                        width: 3,
                       ),
                     ),
-                  ],
-                ),
-                IconButton(
-                  icon: const Icon(
-                    Icons.settings,
-                    color: Colors.white,
-                    size: 40,
+                    child: IconButton(
+                      icon: const Icon(
+                        Icons.arrow_back_sharp,
+                        color: Colors.white,
+                        size: 30,
+                      ),
+                      onPressed: () {
+                        context.router.replaceNamed('mainpage');
+                      },
+                    ),
                   ),
-                  onPressed: () {
-                    print("Ayarlar tıklandı");
-                  },
+                ),
+                Center(
+                  child: Text(
+                    'İzlem Listesi',
+                    textAlign: TextAlign.center,
+                    style: AppTheme.generalMenuTitle,
+                  ),
                 ),
               ],
             ),
@@ -84,26 +90,74 @@ class WatchlistPage extends StatelessWidget {
                   topRight: Radius.circular(20),
                 ),
               ),
-              padding: const EdgeInsets.all(8.0),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  children: [
-                    const SizedBox(height: 15),
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 8.0),
-                        child: Text(
-                          'Önerilenler',
-                          style: AppTheme.mainpageCategoryTitle,
+              padding: const EdgeInsets.all(0.0),
+              child: Stack(
+                children: [
+                  categorys.isEmpty
+                      ? const Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.add_circle,
+                              color: Colors.black,
+                              size: 80,
+                            ),
+                            SizedBox(height: 16),
+                            Text(
+                              'Henüz bir izlem listeniz yok. Hemen oluşturmaya başla',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                              ),
+                            ),
+                          ],
+                        )
+                      : Positioned.fill(
+                          child: Padding(
+                            padding: const EdgeInsets.only(bottom: 60),
+                            child: ListView.builder(
+                              padding: const EdgeInsets.all(18.0),
+                              itemCount: categorys.length,
+                              itemBuilder: (context, index) {
+                                final movie = categorys[index];
+                                return Column(
+                                  children: [
+                                    MovieCard(
+                                      title: movie["title"]!,
+                                      description: movie["description"]!,
+                                      duration: movie["duration"]!,
+                                      imageUrl: movie["imageUrl"]!,
+                                    ),
+                                    const SizedBox(height: 5),
+                                  ],
+                                );
+                              },
+                            ),
+                          ),
+                        ),
+                  Positioned(
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        height: 80,
+                        color: Colors.white,
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 90.0, vertical: 10.0),
+                        child: ButtonComponent(
+                          text: "Yeni İzlem",
+                          onPressed: () {
+                            context.router.replaceNamed('watchNewPage');
+                          },
                         ),
                       ),
                     ),
-                    const SizedBox(height: 10),
-                    MovieCardList(movies: movies),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ),

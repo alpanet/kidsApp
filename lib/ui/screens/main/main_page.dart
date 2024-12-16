@@ -114,7 +114,8 @@ class MainPage extends StatelessWidget {
                               children: [
                                 ElevatedButton.icon(
                                   onPressed: () {
-                                    context.router.replaceNamed('categoryMainPage');
+                                    context.router
+                                        .replaceNamed('categoryMainPage');
                                   },
                                   icon: const Icon(Icons.layers, size: 20),
                                   label: const Text('Yeni Kategori'),
@@ -132,7 +133,9 @@ class MainPage extends StatelessWidget {
                                 ),
                                 ElevatedButton.icon(
                                   onPressed: () {
-                                    print("Yeni İzlem tıklandı");
+                                    context.router
+                                        .replaceNamed('watchlistPage');
+                                    ;
                                   },
                                   icon: const Icon(Icons.tv, size: 20),
                                   label: const Text('Yeni İzlem'),
