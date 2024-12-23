@@ -25,7 +25,7 @@ class OnboardingPage3 extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             const Padding(
-              padding: EdgeInsets.only(top: 90.0),
+              padding: EdgeInsets.only(top: 20.0),
             ),
             Text(
               'Kontrol Tam Sizde!',
@@ -65,7 +65,7 @@ class OnboardingPage3 extends StatelessWidget {
             ),
             const SizedBox(height: 70),
             Padding(
-              padding: const EdgeInsets.only(bottom: 120.0),
+              padding: const EdgeInsets.only(bottom: 140.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: List.generate(

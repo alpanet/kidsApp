@@ -30,7 +30,7 @@ class OnboardingPage1 extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             const Padding(
-              padding: EdgeInsets.only(top: 90.0),
+              padding: EdgeInsets.only(top: 0.0),
             ),
             Text(
               'Eğlenceli Zaman, Sınırlı!',
@@ -89,7 +89,7 @@ class OnboardingPage1 extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(bottom: 20.0),
+              padding: const EdgeInsets.only(bottom: 0.0),
               child: Align(
                 alignment: Alignment.bottomRight,
                 child: Container(

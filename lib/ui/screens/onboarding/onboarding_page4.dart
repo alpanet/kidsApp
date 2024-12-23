@@ -93,7 +93,7 @@ class OnboardingPage4 extends StatelessWidget {
                     ),
                     child: Text(
                       "Başlayalım",
-                      style: AppTheme.primaryButtonText,
+                      style: AppTheme.secondaryButtonText,
                       textAlign: TextAlign.center,
                     ),
                   ),

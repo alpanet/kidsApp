@@ -17,7 +17,7 @@ class CategoryMainPage extends StatelessWidget {
             "Follow a group of adventurers as they journey through enchanted forests to find a legendary compass said to point towards untold treasures.",
         "duration": "105 dk",
         "imageUrl":
-            "https://i.ytimg.com/vi/ZvodMMy43B8/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDJ-bW4ncecTMmMeS4Io8VVjxAjyQ",
+            'https://img.youtube.com/vi/ZvodMMy43B8/maxresdefault.jpg',
       },
       {
         "title": "The Galactic Explorers",
@@ -25,7 +25,7 @@ class CategoryMainPage extends StatelessWidget {
             "A thrilling space odyssey where a team of astronauts uncover a hidden alien civilization and their secrets to interstellar travel.",
         "duration": "120 dk",
         "imageUrl":
-            "https://i.ytimg.com/vi/ZvodMMy43B8/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDJ-bW4ncecTMmMeS4Io8VVjxAjyQ",
+            'https://img.youtube.com/vi/Va7gnpMnaQ8/maxresdefault.jpg',
       },
       {
         "title": "The Chocolate Heist",
@@ -33,7 +33,7 @@ class CategoryMainPage extends StatelessWidget {
             "A group of quirky friends plots to steal the world's largest chocolate sculpture before it melts in a summer heatwave.",
         "duration": "95 dk",
         "imageUrl":
-            "https://i.ytimg.com/vi/ZvodMMy43B8/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDJ-bW4ncecTMmMeS4Io8VVjxAjyQ",
+            'https://img.youtube.com/vi/jfKfPfyJRdk/maxresdefault.jpg',
       },
     ];
 

@@ -27,7 +27,7 @@ class _CountdownComponentState extends State<CountdownComponent> {
       initialDuration: 0,
       controller: _controller,
       width: MediaQuery.of(context).size.width / 2,
-      height: MediaQuery.of(context).size.height / 2,
+      height: MediaQuery.of(context).size.height / 2.5,
       ringColor: Colors.grey[300]!,
       ringGradient: null,
       fillColor: primaryColor,

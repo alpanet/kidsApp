@@ -10,32 +10,7 @@ class WatchlistPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Map<String, String>> categorys = [
-      // {
-      //   "title": "Mystery of the Lost Compass",
-      //   "description":
-      //       "Follow a group of adventurers as they journey through enchanted forests to find a legendary compass said to point towards untold treasures.",
-      //   "duration": "105 dk",
-      //   "imageUrl":
-      //       "https://i.ytimg.com/vi/ZvodMMy43B8/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDJ-bW4ncecTMmMeS4Io8VVjxAjyQ",
-      // },
-      // {
-      //   "title": "The Galactic Explorers",
-      //   "description":
-      //       "A thrilling space odyssey where a team of astronauts uncover a hidden alien civilization and their secrets to interstellar travel.",
-      //   "duration": "120 dk",
-      //   "imageUrl":
-      //       "https://i.ytimg.com/vi/ZvodMMy43B8/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDJ-bW4ncecTMmMeS4Io8VVjxAjyQ",
-      // },
-      // {
-      //   "title": "The Chocolate Heist",
-      //   "description":
-      //       "A group of quirky friends plots to steal the world's largest chocolate sculpture before it melts in a summer heatwave.",
-      //   "duration": "95 dk",
-      //   "imageUrl":
-      //       "https://i.ytimg.com/vi/ZvodMMy43B8/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDJ-bW4ncecTMmMeS4Io8VVjxAjyQ",
-      // },
-    ];
+    final List<Map<String, String>> categorys = [];
 
     return Scaffold(
       backgroundColor: AppTheme.secondBackgoundColor,

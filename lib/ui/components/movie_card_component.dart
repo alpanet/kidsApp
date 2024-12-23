@@ -36,8 +36,7 @@ class MovieCard extends StatelessWidget {
                 ),
               );
             },
-            borderRadius:
-                BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(16),
             child: Card(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16),
@@ -56,6 +55,15 @@ class MovieCard extends StatelessWidget {
                       width: double.infinity,
                       height: 180,
                       fit: BoxFit.cover,
+                      errorBuilder: (BuildContext context, Object error,
+                          StackTrace? stackTrace) {
+                        return Container(
+                          width: double.infinity,
+                          height: 180,
+                          color: const Color.fromARGB(255, 255, 255, 255),
+                          child: Icon(Icons.error, color: Colors.red),
+                        );
+                      },
                     ),
                   ),
                   Padding(

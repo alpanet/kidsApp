@@ -16,7 +16,7 @@ class MainPage extends StatelessWidget {
             'A deliciously puzzling adventure where young sleuths must track down the trail of missing marshmallows from the campfire, unraveling clues and discovering tasty secrets along the way.',
         'duration': '90 dk',
         'imageUrl':
-            'https://i.ytimg.com/vi/ZvodMMy43B8/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDJ-bW4ncecTMmMeS4Io8VVjxAjyQ',
+            'https://img.youtube.com/vi/ZvodMMy43B8/maxresdefault.jpg',
       },
       {
         'title': 'Adventures in the Candyland',
@@ -24,7 +24,7 @@ class MainPage extends StatelessWidget {
             'Join the magical journey through Candyland where surprises await at every corner!',
         'duration': '120 dk',
         'imageUrl':
-            'https://i.ytimg.com/vi/Va7gnpMnaQ8/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCy89ra0SlrHpKm4TBD52OybHNaUQ',
+            'https://img.youtube.com/vi/Va7gnpMnaQ8/maxresdefault.jpg',
       },
       {
         'title': 'Treasure Hunt in the Jungle',
@@ -32,7 +32,7 @@ class MainPage extends StatelessWidget {
             'Follow the treasure map to uncover mysteries and find hidden treasures in the jungle.',
         'duration': '110 dk',
         'imageUrl':
-            'https://i.ytimg.com/vi/jfKfPfyJRdk/hq720.jpg?v=665dffb9&sqp=CITx37oG-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAqJJG_LFaTNapIQB_Hbrv0IHNZaA',
+            'https://img.youtube.com/vi/jfKfPfyJRdk/maxresdefault.jpg',
       },
     ];
 

@@ -102,10 +102,6 @@ class _VideoPageState extends State<VideoPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      appBar: AppBar(
-        title: const Text('Video Player'),
-        backgroundColor: Colors.black,
-      ),
       body: Column(
         children: [
           Expanded(
@@ -136,20 +132,11 @@ class _VideoPageState extends State<VideoPage> {
                   ),
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              IconButton(
-                icon: const Icon(Icons.arrow_back, color: Colors.white),
-                onPressed: currentIndex > 0 ? _navigateToPreviousVideo : null,
-              ),
               Text(
                 '${currentIndex + 1} / ${widget.videoUrls.length}',
                 style: const TextStyle(color: Colors.white),
-              ),
-              IconButton(
-                icon: const Icon(Icons.arrow_forward, color: Colors.white),
-                onPressed:
-                    currentIndex < widget.videoUrls.length - 1 ? _navigateToNextVideo : null,
               ),
             ],
           ),

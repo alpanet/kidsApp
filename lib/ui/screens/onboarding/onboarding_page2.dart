@@ -25,7 +25,7 @@ class OnboardingPage2 extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             const Padding(
-              padding: EdgeInsets.only(top: 90.0),
+              padding: EdgeInsets.only(top: 20.0),
             ),
             Text(
               'Özel İçerik Seçimi',

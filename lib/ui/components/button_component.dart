@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kids_app/theme.dart';
 
 class ButtonComponent extends StatelessWidget {
   final String text;
@@ -32,11 +33,8 @@ class ButtonComponent extends StatelessWidget {
       child: Text(
         text,
         style: textStyle ??
-            const TextStyle(
-              fontSize: 26,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-            ),
+            AppTheme.primaryButtonText,
+        textAlign: TextAlign.center,
       ),
     );
   }

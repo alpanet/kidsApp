@@ -51,7 +51,14 @@ class AppTheme {
       );
 
   static TextStyle get primaryButtonText => const TextStyle(
-        fontSize: 26,
+        fontSize: 23,
+        color: primaryTextColor,
+        fontWeight: FontWeight.normal,
+        fontFamily: 'Gentona',
+      );
+
+  static TextStyle get secondaryButtonText => const TextStyle(
+        fontSize: 23,
         color: secondTextColor,
         fontWeight: FontWeight.normal,
         fontFamily: 'Gentona',
@@ -74,21 +81,21 @@ class AppTheme {
   static TextStyle get mainpageTitle => const TextStyle(
         fontSize: 20,
         fontWeight: FontWeight.normal,
-        color: Color.fromARGB(255, 0, 0, 0),
+        color: secondTextColor,
         fontFamily: 'Gentona',
       );
 
   static TextStyle get mainpageSubTitle => const TextStyle(
         fontSize: 12,
         fontWeight: FontWeight.normal,
-        color: Color.fromARGB(255, 0, 0, 0),
+        color: secondTextColor,
         fontFamily: 'Gentona',
       );
   
   static TextStyle get mainpageCategoryTitle => const TextStyle(
         fontSize: 20,
         fontWeight: FontWeight.bold,
-        color: Color.fromARGB(255, 0, 0, 0),
+        color: secondTextColor,
         fontFamily: 'Gentona',
       );
 }
