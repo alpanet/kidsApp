@@ -64,27 +64,27 @@ class OnboardingPage3 extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 70),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 140.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: List.generate(
-                  3,
-                  (index) => AnimatedContainer(
-                    duration: const Duration(milliseconds: 300),
-                    width: 20.0,
-                    height: 20.0,
-                    margin: const EdgeInsets.symmetric(horizontal: 5.0),
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: currentPage == index ? Colors.white : Colors.grey,
-                    ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(
+                3,
+                (index) => AnimatedContainer(
+                  duration: const Duration(milliseconds: 300),
+                  width: 20.0,
+                  height: 20.0,
+                  margin: const EdgeInsets.symmetric(horizontal: 5.0),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: currentPage == index ? Colors.white : Colors.grey,
                   ),
                 ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(bottom: 20.0),
+              padding: EdgeInsets.only(
+                top: MediaQuery.of(context).size.height *
+                    0.07,
+              ),
               child: Align(
                 alignment: Alignment.bottomRight,
                 child: Container(

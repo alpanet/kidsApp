@@ -118,12 +118,10 @@ class _VideoPageState extends State<VideoPage> {
                           ]);
                         },
                         onEnded: (data) {
-                          SystemChrome.setPreferredOrientations([
-                            DeviceOrientation.portraitUp,
-                          ]);
+                          _navigateToNextVideo();
                         },
                       )
-                    : VideoPlayerWidget(videoUrl: widget.videoUrls[currentIndex])
+                    : VideoPlayerWidget(videoUrl: widget.videoUrls[currentIndex], onVideoEnd: _navigateToNextVideo)
                 : const Center(
                     child: Text(
                       "This URL does not contain a video.",

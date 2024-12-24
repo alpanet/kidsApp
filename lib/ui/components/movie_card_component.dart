@@ -30,7 +30,7 @@ class MovieCard extends StatelessWidget {
                     videoUrls: [
                       'https://www.youtube.com/watch?v=IAkVzdUAR_w',
                       'https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4',
-                      'commondatasdasdckBunny.mp4'
+                      'https://youtu.be/RFkkYVxyJYI?si=xqCwfyeoB_wwr6g9'
                     ],
                   ),
                 ),

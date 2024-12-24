@@ -213,9 +213,8 @@ class MainPageListCardComponent extends StatelessWidget {
             style: AppTheme.mainpageCategoryTitle,
           ),
         ),
-        const SizedBox(height: 10),
         SizedBox(
-          height: 320, // Kartların yüksekliği
+          height: 320,
           child: MovieCardList(movies: movies),
         ),
       ],

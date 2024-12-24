@@ -4,8 +4,13 @@ import 'package:flutter/services.dart';
 
 class VideoPlayerWidget extends StatefulWidget {
   final String videoUrl;
+  final VoidCallback? onVideoEnd;
 
-  const VideoPlayerWidget({super.key, required this.videoUrl});
+  const VideoPlayerWidget({
+    super.key,
+    required this.videoUrl,
+    this.onVideoEnd,
+  });
 
   @override
   State<VideoPlayerWidget> createState() => _VideoPlayerWidgetState();
@@ -14,6 +19,7 @@ class VideoPlayerWidget extends StatefulWidget {
 class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
   late VideoPlayerController _controller;
   bool isInitialized = false;
+  bool showControls = true;
   bool isFullScreen = false;
 
   @override
@@ -31,11 +37,19 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
               isInitialized = true;
             });
             _controller.play();
-            _enterFullScreen();
+            _hideControlsAfterDelay();
           }
         }).catchError((error) {
           debugPrint("Error initializing video player: $error");
         });
+
+      _controller.addListener(() {
+        if (_controller.value.isInitialized &&
+            !_controller.value.isPlaying &&
+            _controller.value.position >= _controller.value.duration) {
+          widget.onVideoEnd?.call();
+        }
+      });
     } catch (e) {
       debugPrint("Error setting up video player: $e");
     }
@@ -55,20 +69,23 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
     setState(() {
       isFullScreen = false;
     });
-    if (mounted) {
-      SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
-      SystemChrome.setPreferredOrientations(
-          [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
-    }
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+    SystemChrome.setPreferredOrientations(
+        [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+  }
+
+  void _hideControlsAfterDelay() {
+    Future.delayed(const Duration(seconds: 3), () {
+      if (mounted && _controller.value.isPlaying) {
+        setState(() {
+          showControls = false;
+        });
+      }
+    });
   }
 
   @override
   void dispose() {
-    Future.delayed(Duration.zero, () {
-      if (mounted) {
-        _exitFullScreen();
-      }
-    });
     _controller.dispose();
     super.dispose();
   }
@@ -77,50 +94,68 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: isInitialized
-          ? GestureDetector(
-              onTap: () {
-                setState(() {
-                  if (_controller.value.isPlaying) {
-                    _controller.pause();
-                  } else {
-                    _controller.play();
-                  }
-                });
-              },
-              child: Stack(
-                children: [
-                  Center(
-                    child: AspectRatio(
-                      aspectRatio: _controller.value.aspectRatio,
-                      child: VideoPlayer(_controller),
-                    ),
-                  ),
-                  if (!isFullScreen)
-                    Positioned(
-                      bottom: 20,
-                      right: 20,
-                      child: IconButton(
-                        icon: const Icon(Icons.fullscreen, color: Colors.white),
-                        onPressed: _enterFullScreen,
-                      ),
-                    ),
-                  if (isFullScreen)
-                    Positioned(
-                      top: 20,
-                      left: 20,
-                      child: IconButton(
-                        icon: const Icon(Icons.fullscreen_exit,
-                            color: Colors.white),
-                        onPressed: _exitFullScreen,
-                      ),
-                    ),
-                ],
+      body: GestureDetector(
+        onTap: () {
+          setState(() {
+            showControls = !showControls;
+          });
+          if (_controller.value.isPlaying) {
+            _hideControlsAfterDelay();
+          }
+        },
+        child: Stack(
+          children: [
+            Center(
+              child: AspectRatio(
+                aspectRatio: _controller.value.aspectRatio,
+                child: VideoPlayer(_controller),
               ),
-            )
-          : const Center(
-              child: CircularProgressIndicator(),
             ),
+            if (showControls) ...[
+              Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    IconButton(
+                      iconSize: 64,
+                      icon: Icon(
+                        _controller.value.isPlaying
+                            ? Icons.pause_circle_filled
+                            : Icons.play_circle_fill,
+                        color: Colors.white,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          if (_controller.value.isPlaying) {
+                            _controller.pause();
+                          } else {
+                            _controller.play();
+                            _hideControlsAfterDelay();
+                          }
+                        });
+                      },
+                    ),
+                  ],
+                ),
+              ),
+              Positioned(
+                bottom: 20,
+                left: 20,
+                right: 20,
+                child: VideoProgressIndicator(
+                  _controller,
+                  allowScrubbing: true,
+                  colors: const VideoProgressColors(
+                    playedColor: Colors.red,
+                    bufferedColor: Colors.grey,
+                    backgroundColor: Colors.white,
+                  ),
+                ),
+              ),
+            ],
+          ],
+        ),
+      ),
     );
   }
 }
