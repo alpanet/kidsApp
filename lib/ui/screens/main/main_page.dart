@@ -9,30 +9,27 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Map<String, String>> movies = [
+    final List<Map<String, String>> moviesSuggest = [
       {
         'title': 'The Mystery of the Missing Marshmallows',
         'description':
             'A deliciously puzzling adventure where young sleuths must track down the trail of missing marshmallows from the campfire, unraveling clues and discovering tasty secrets along the way.',
         'duration': '90 dk',
-        'imageUrl':
-            'https://img.youtube.com/vi/ZvodMMy43B8/maxresdefault.jpg',
+        'imageUrl': 'https://img.youtube.com/vi/ZvodMMy43B8/maxresdefault.jpg',
       },
       {
         'title': 'Adventures in the Candyland',
         'description':
             'Join the magical journey through Candyland where surprises await at every corner!',
         'duration': '120 dk',
-        'imageUrl':
-            'https://img.youtube.com/vi/Va7gnpMnaQ8/maxresdefault.jpg',
+        'imageUrl': 'https://img.youtube.com/vi/Va7gnpMnaQ8/maxresdefault.jpg',
       },
       {
         'title': 'Treasure Hunt in the Jungle',
         'description':
             'Follow the treasure map to uncover mysteries and find hidden treasures in the jungle.',
         'duration': '110 dk',
-        'imageUrl':
-            'https://img.youtube.com/vi/jfKfPfyJRdk/maxresdefault.jpg',
+        'imageUrl': 'https://img.youtube.com/vi/jfKfPfyJRdk/maxresdefault.jpg',
       },
     ];
 
@@ -162,18 +159,27 @@ class MainPage extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 15),
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 8.0),
-                        child: Text(
-                          'Önerilenler',
-                          style: AppTheme.mainpageCategoryTitle,
-                        ),
+                    Expanded(
+                      child: CustomScrollView(
+                        slivers: [
+                          SliverToBoxAdapter(
+                            child: MainPageListCardComponent(
+                              title: 'Önerilenler',
+                              movies: moviesSuggest,
+                            ),
+                          ),
+                          const SliverToBoxAdapter(
+                            child: SizedBox(height: 15), // Ek boşluk
+                          ),
+                          SliverToBoxAdapter(
+                            child: MainPageListCardComponent(
+                              title: 'Popüler Filmler',
+                              movies: moviesSuggest,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    const SizedBox(height: 10),
-                    MovieCardList(movies: movies),
                   ],
                 ),
               ),
@@ -181,6 +187,38 @@ class MainPage extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class MainPageListCardComponent extends StatelessWidget {
+  final String title;
+  final List<Map<String, String>> movies;
+
+  const MainPageListCardComponent({
+    super.key,
+    required this.title,
+    required this.movies,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(left: 8.0),
+          child: Text(
+            title,
+            style: AppTheme.mainpageCategoryTitle,
+          ),
+        ),
+        const SizedBox(height: 10),
+        SizedBox(
+          height: 320, // Kartların yüksekliği
+          child: MovieCardList(movies: movies),
+        ),
+      ],
     );
   }
 }
