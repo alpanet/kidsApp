@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:kids_app/theme.dart';
+import 'package:kids_app/ui/components/button_component.dart';
 import 'package:kids_app/ui/components/text_input_component.dart';
 
 @RoutePage()
@@ -14,7 +15,6 @@ class WatchNewPage extends StatefulWidget {
 class _WatchNewPageState extends State<WatchNewPage> {
   final TextEditingController _listeAdiController = TextEditingController();
   final List<TextEditingController> _controllers = [TextEditingController()];
-  int _rowCount = 1;
 
   @override
   void dispose() {
@@ -28,7 +28,6 @@ class _WatchNewPageState extends State<WatchNewPage> {
   void _addRow() {
     setState(() {
       _controllers.add(TextEditingController());
-      _rowCount++;
     });
   }
 
@@ -301,7 +300,7 @@ class _WatchNewPageState extends State<WatchNewPage> {
                               icon: const Icon(
                                 Icons.add_circle,
                                 size: 36,
-                                color: Colors.green,
+                                color: AppTheme.secondBackgoundColor,
                               ),
                             ),
                           ),
@@ -311,28 +310,15 @@ class _WatchNewPageState extends State<WatchNewPage> {
                       ),
                     ),
                     Center(
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.green[700],
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 50, vertical: 12),
-                        ),
-                        onPressed: () {
-                          print("Kaydet Pressed");
-                          print("Liste Adı: ${_listeAdiController.text}");
-                          for (var controller in _controllers) {
-                            print("Süre: ${controller.text}");
-                          }
-                        },
-                        child: const Text(
-                          'Kaydet',
-                          style: TextStyle(fontSize: 18, color: Colors.white),
-                        ),
-                      ),
-                    ),
+                        child: ButtonComponent(
+                            text: "Kaydet",
+                            onPressed: () {
+                              print("Kaydet Pressed");
+                              print("Liste Adı: ${_listeAdiController.text}");
+                              for (var controller in _controllers) {
+                                print("Süre: ${controller.text}");
+                              }
+                            })),
                   ],
                 ),
               ),

@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:kids_app/theme.dart';
+import 'package:kids_app/ui/components/button_component.dart';
 import 'package:kids_app/ui/components/image_upload_widget.dart';
 import 'package:kids_app/ui/components/text_input_component.dart';
 import 'package:kids_app/ui/components/text_input_icons_component.dart';
@@ -188,29 +189,15 @@ class _CategoryNewCategoryPageState extends State<CategoryNewCategoryPage> {
                       ),
                     ),
                     const SizedBox(height: 20),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.green[700],
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                      onPressed: () {
-                        print("Kaydet pressed!");
-                        print("Liste Adı: ${_listeAdiController.text}");
-                        for (var controller in _controllers) {
-                          print("Input Value: ${controller.text}");
-                        }
-                      },
-                      child: const Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 30.0, vertical: 12.0),
-                        child: Text(
-                          'Kaydet',
-                          style: TextStyle(fontSize: 18, color: Colors.white),
-                        ),
-                      ),
-                    ),
+                    ButtonComponent(
+                        text: "Kaydet",
+                        onPressed: () {
+                          print("Kaydet pressed!");
+                          print("Liste Adı: ${_listeAdiController.text}");
+                          for (var controller in _controllers) {
+                            print("Input Value: ${controller.text}");
+                          }
+                        })
                   ],
                 ),
               ),
