@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:http/http.dart' as http;
 import 'package:kids_app/ui/components/video_player_widget.dart';
+import 'package:kids_app/ui/screens/videoPlayer/exit_confirmation_page.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:flutter/services.dart';
 
@@ -100,45 +101,63 @@ class _VideoPageState extends State<VideoPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black,
-      body: Column(
-        children: [
-          Expanded(
-            child: isVideo
-                ? host.contains("youtube.com") || host.contains("youtu.be")
-                    ? YoutubePlayer(
-                        controller: _youtubeController,
-                        showVideoProgressIndicator: true,
-                        onReady: () {
-                          _youtubeController.toggleFullScreenMode();
-                          SystemChrome.setPreferredOrientations([
-                            DeviceOrientation.landscapeRight,
-                            DeviceOrientation.landscapeLeft,
-                          ]);
-                        },
-                        onEnded: (data) {
-                          _navigateToNextVideo();
-                        },
-                      )
-                    : VideoPlayerWidget(videoUrl: widget.videoUrls[currentIndex], onVideoEnd: _navigateToNextVideo)
-                : const Center(
-                    child: Text(
-                      "This URL does not contain a video.",
-                      style: TextStyle(color: Colors.white),
+    return WillPopScope(
+      onWillPop: () async {
+        SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+        await Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => const ExitConfirmationPage(),
+          ),
+        );
+        SystemChrome.setPreferredOrientations([
+                              DeviceOrientation.landscapeRight,
+                              DeviceOrientation.landscapeLeft,
+                            ]);
+        return false;
+      },
+      child: Scaffold(
+        backgroundColor: Colors.black,
+        body: Column(
+          children: [
+            Expanded(
+              child: isVideo
+                  ? host.contains("youtube.com") || host.contains("youtu.be")
+                      ? YoutubePlayer(
+                          controller: _youtubeController,
+                          showVideoProgressIndicator: true,
+                          onReady: () {
+                            _youtubeController.toggleFullScreenMode();
+                            SystemChrome.setPreferredOrientations([
+                              DeviceOrientation.landscapeRight,
+                              DeviceOrientation.landscapeLeft,
+                            ]);
+                          },
+                          onEnded: (data) {
+                            _navigateToNextVideo();
+                          },
+                        )
+                      : VideoPlayerWidget(
+                          videoUrl: widget.videoUrls[currentIndex],
+                          onVideoEnd: _navigateToNextVideo,
+                        )
+                  : const Center(
+                      child: Text(
+                        "This URL does not contain a video.",
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ),
-                  ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                '${currentIndex + 1} / ${widget.videoUrls.length}',
-                style: const TextStyle(color: Colors.white),
-              ),
-            ],
-          ),
-        ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  '${currentIndex + 1} / ${widget.videoUrls.length}',
+                  style: const TextStyle(color: Colors.white),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

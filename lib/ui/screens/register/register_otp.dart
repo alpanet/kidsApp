@@ -18,7 +18,7 @@ class RegisterOtp extends StatefulWidget {
 class _RegisterOtpState extends State<RegisterOtp> {
   bool _isButtonEnabled = false;
   late CountDownController _countdownController;
-  List<String> _otpList = List<String>.generate(5, (index) => "");
+  String _otpString = "";
 
   @override
   void initState() {
@@ -35,13 +35,13 @@ class _RegisterOtpState extends State<RegisterOtp> {
   void _onResendPressed() {
     setState(() {
       _isButtonEnabled = false;
-      _otpList = List<String>.generate(5, (index) => "");
+      _otpString = "";
     });
     _countdownController.restart(duration: 10);
   }
 
   void _onProceedPressed() {
-    String otp = _otpList.join('');
+    String otp = _otpString;
     print('OTP Entered: $otp');
   }
 
@@ -68,10 +68,9 @@ class _RegisterOtpState extends State<RegisterOtp> {
               onCompleteCallback: _onTimerComplete,
             ),
             OtpInputComponent(
-              otpList: _otpList,
               onOtpChanged: (otp) {
                 setState(() {
-                  _otpList = otp;
+                  _otpString = otp;
                 });
               },
             ),
