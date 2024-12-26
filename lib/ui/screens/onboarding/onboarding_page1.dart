@@ -62,7 +62,7 @@ class OnboardingPage1 extends StatelessWidget {
                   ),
                   clipBehavior: Clip.hardEdge,
                   child: Image.asset(
-                    'assets/onboarding_images/onboarding_one.jpg',
+                    'assets/onboarding_images/onboarding_one.webp',
                     fit: BoxFit.cover,
                   ),
                 ),

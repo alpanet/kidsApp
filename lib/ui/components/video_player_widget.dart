@@ -154,26 +154,94 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Expanded(
-                      child: SizedBox(
-                        height: 10, // Kalınlık için yükseklik ayarı
-                        child: VideoProgressIndicator(
-                          _controller,
-                          allowScrubbing: true,
-                          colors: const VideoProgressColors(
-                            playedColor: Colors.red,
-                            bufferedColor: Colors.grey,
-                            backgroundColor: Colors.white,
+                      child: Stack(
+                        children: [
+                          SliderTheme(
+                            data: SliderThemeData(
+                              trackHeight: 4,
+                              thumbShape: RoundSliderThumbShape(
+                                enabledThumbRadius: 8,
+                              ),
+                              thumbColor: Colors.red,
+                              activeTrackColor: Colors.red,
+                              inactiveTrackColor: Colors.grey,
+                              overlayColor: Colors.red.withOpacity(0.2),
+                            ),
+                            child: StatefulBuilder(
+                              builder: (context, setState) {
+                                double dragValue = _controller
+                                    .value.position.inMilliseconds
+                                    .toDouble();
+                                return Slider(
+                                  min: 0,
+                                  max: _controller
+                                      .value.duration.inMilliseconds
+                                      .toDouble(),
+                                  value: dragValue,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      dragValue = value;
+                                    });
+                                    _controller.seekTo(Duration(
+                                        milliseconds: value.toInt()));
+                                  },
+                                  onChangeStart: (value) {
+                                    _controller.pause();
+                                  },
+                                  onChangeEnd: (value) {
+                                    _controller.seekTo(Duration(
+                                        milliseconds: value.toInt()));
+                                    _controller.play();
+                                  },
+                                );
+                              },
+                            ),
                           ),
-                        ),
+                          StatefulBuilder(
+                            builder: (context, setState) {
+                              double dragValue = _controller
+                                  .value.position.inMilliseconds
+                                  .toDouble();
+                              final positionFraction = _controller
+                                          .value.duration.inMilliseconds >
+                                      0
+                                  ? dragValue /
+                                      _controller
+                                          .value.duration.inMilliseconds
+                                  : 0.0;
+
+                              return Positioned(
+                                left: positionFraction *
+                                    (MediaQuery.of(context).size.width - 40),
+                                child: Visibility(
+                                  visible: true,
+                                  child: Container(
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 2, horizontal: 5),
+                                    decoration: BoxDecoration(
+                                      color: Colors.black.withOpacity(0.7),
+                                      borderRadius: BorderRadius.circular(5),
+                                    ),
+                                    child: Text(
+                                      _formatDuration(Duration(
+                                          milliseconds: dragValue.toInt())),
+                                      style: const TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 10,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
+                        ],
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 10.0),
                       child: Text(
-                        "${_formatDuration(_controller.value.position)} / ${_formatDuration(
-                          _controller.value.duration -
-                              _controller.value.position,
-                        )}",
+                        "${_formatDuration(_controller.value.position)} / ${_formatDuration(_controller.value.duration)}",
                         style: const TextStyle(
                           color: Colors.white,
                           fontSize: 12,

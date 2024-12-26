@@ -27,11 +27,16 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final double screenWidth = MediaQuery.of(context).size.width;
+    final double screenHeight = MediaQuery.of(context).size.height;
+    final double containerWidth = screenWidth * 0.6;
+    final double containerHeight = screenHeight * 0.12;
+
     return GestureDetector(
       onTap: _pickImage,
       child: Container(
-        width: MediaQuery.of(context).size.width * 0.7,
-        height: 100,
+        width: containerWidth,
+        height: containerHeight,
         decoration: BoxDecoration(
           color: Colors.grey[200],
           border: Border.all(color: Colors.black, width: 2),
@@ -44,6 +49,8 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
                 child: Image.file(
                   _selectedImage!,
                   fit: BoxFit.cover,
+                  width: containerWidth,
+                  height: containerHeight,
                 ),
               ),
       ),

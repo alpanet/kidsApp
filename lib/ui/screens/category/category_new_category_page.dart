@@ -114,38 +114,15 @@ class _CategoryNewCategoryPageState extends State<CategoryNewCategoryPage> {
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
                   children: [
-                    const SizedBox(height: 20),
                     ImageUploadWidget(onImageSelected: _handleImageSelected),
-                    const SizedBox(height: 20),
-                    if (_uploadedImage != null)
-                      Column(
-                        children: [
-                          const Text(
-                            'Yüklenen Resim:',
-                            style: TextStyle(fontSize: 16),
-                          ),
-                          const SizedBox(height: 10),
-                          Image.file(
-                            _uploadedImage!,
-                            width: 150,
-                            height: 150,
-                            fit: BoxFit.cover,
-                          ),
-                        ],
-                      )
-                    else
-                      const Text(
-                        'Henüz bir resim yüklenmedi.',
-                        style: TextStyle(fontSize: 16),
-                      ),
-                    const SizedBox(height: 40),
+                    const SizedBox(height: 10),
                     TextInputComponent(
-                      label: 'Liste Adı',
-                      placeholder: 'Liste Adı',
+                      label: 'Kategori Adı',
+                      placeholder: 'Kategori Adı',
                       controller: _listeAdiController,
                       isMultiline: false,
                     ),
-                    const SizedBox(height: 30),
+                    const SizedBox(height: 10),
                     const Text(
                       'İçerikler',
                       style:
@@ -155,8 +132,7 @@ class _CategoryNewCategoryPageState extends State<CategoryNewCategoryPage> {
                     const Divider(thickness: 3.0),
                     Expanded(
                       child: ListView.builder(
-                        itemCount: _controllers.length +
-                            1, // Add 1 for the "+" button at the end
+                        itemCount: _controllers.length + 1,
                         itemBuilder: (context, index) {
                           if (index < _controllers.length) {
                             return Padding(
@@ -188,7 +164,7 @@ class _CategoryNewCategoryPageState extends State<CategoryNewCategoryPage> {
                         },
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 10),
                     ButtonComponent(
                         text: "Kaydet",
                         onPressed: () {
