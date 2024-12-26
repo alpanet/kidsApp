@@ -145,6 +145,7 @@ class _WatchNewPageState extends State<WatchNewPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: AppTheme.secondBackgoundColor,
       body: SafeArea(
         child: Column(
@@ -173,7 +174,7 @@ class _WatchNewPageState extends State<WatchNewPage> {
                           size: 30,
                         ),
                         onPressed: () {
-                          context.router.replaceNamed('mainpage');
+                          context.router.replaceNamed('watchlistPage');
                         },
                       ),
                     ),
@@ -209,7 +210,7 @@ class _WatchNewPageState extends State<WatchNewPage> {
                     ),
                     const SizedBox(height: 20),
                     _buildTotalDuration(),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 10),
                     const Row(
                       children: [
                         Expanded(flex: 2, child: Text('Kategori')),
@@ -218,97 +219,85 @@ class _WatchNewPageState extends State<WatchNewPage> {
                     ),
                     const Divider(),
                     Expanded(
-                      child: Column(
-                        children: [
-                          Expanded(
-                            child: ListView.builder(
-                              itemCount: _controllers.length,
-                              itemBuilder: (context, index) {
-                                return Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(vertical: 8.0),
-                                  child: Row(
-                                    children: [
-                                      Text(
-                                        '${index + 1}',
-                                        style: const TextStyle(
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.bold),
+                      child: ListView.builder(
+                        itemCount: _controllers.length,
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 8.0),
+                            child: Row(
+                              children: [
+                                Text(
+                                  '${index + 1}',
+                                  style: const TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                const SizedBox(width: 10),
+                                Expanded(
+                                  flex: 2,
+                                  child: DropdownButtonFormField<String>(
+                                    decoration: InputDecoration(
+                                      filled: true,
+                                      fillColor: Colors.grey[200],
+                                      border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(8),
+                                        borderSide: BorderSide.none,
                                       ),
-                                      const SizedBox(width: 10),
-                                      Expanded(
-                                        flex: 2,
-                                        child: DropdownButtonFormField<String>(
-                                          decoration: InputDecoration(
-                                            filled: true,
-                                            fillColor: Colors.grey[200],
-                                            border: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(8),
-                                              borderSide: BorderSide.none,
-                                            ),
-                                          ),
-                                          value: null,
-                                          items: [
-                                            'Kategori 1',
-                                            'Kategori 2',
-                                            'Kategori 3'
-                                          ]
-                                              .map((category) =>
-                                                  DropdownMenuItem(
-                                                    value: category,
-                                                    child: Text(category),
-                                                  ))
-                                              .toList(),
-                                          onChanged: (value) {
-                                            print("Selected Category: $value");
-                                          },
-                                          hint: const Text('Seçim yapın'),
-                                        ),
-                                      ),
-                                      const SizedBox(width: 10),
-                                      Expanded(
-                                        flex: 1,
-                                        child: TextFormField(
-                                          controller: _controllers[index],
-                                          decoration: InputDecoration(
-                                            hintText: 'Süre',
-                                            filled: true,
-                                            fillColor: Colors.grey[200],
-                                            contentPadding:
-                                                const EdgeInsets.symmetric(
-                                                    horizontal: 10,
-                                                    vertical: 12),
-                                            border: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(8),
-                                              borderSide: BorderSide.none,
-                                            ),
-                                          ),
-                                          keyboardType: TextInputType.number,
-                                        ),
-                                      ),
-                                    ],
+                                    ),
+                                    value: null,
+                                    items: [
+                                      'Kategori 1',
+                                      'Kategori 2',
+                                      'Kategori 3'
+                                    ]
+                                        .map((category) => DropdownMenuItem(
+                                              value: category,
+                                              child: Text(category),
+                                            ))
+                                        .toList(),
+                                    onChanged: (value) {
+                                      print("Selected Category: $value");
+                                    },
+                                    hint: const Text('Seçim yapın'),
                                   ),
-                                );
-                              },
+                                ),
+                                const SizedBox(width: 10),
+                                Expanded(
+                                  flex: 1,
+                                  child: TextFormField(
+                                    controller: _controllers[index],
+                                    decoration: InputDecoration(
+                                      hintText: 'Süre',
+                                      filled: true,
+                                      fillColor: Colors.grey[200],
+                                      contentPadding:
+                                          const EdgeInsets.symmetric(
+                                              horizontal: 10, vertical: 12),
+                                      border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(8),
+                                        borderSide: BorderSide.none,
+                                      ),
+                                    ),
+                                    keyboardType: TextInputType.number,
+                                  ),
+                                ),
+                              ],
                             ),
-                          ),
-                          Center(
-                            child: IconButton(
-                              onPressed: _addRow,
-                              icon: const Icon(
-                                Icons.add_circle,
-                                size: 36,
-                                color: AppTheme.secondBackgoundColor,
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 8),
-                          const Divider(),
-                        ],
+                          );
+                        },
                       ),
                     ),
+                    Center(
+                      child: IconButton(
+                        onPressed: _addRow,
+                        icon: const Icon(
+                          Icons.add_circle,
+                          size: 36,
+                          color: AppTheme.secondBackgoundColor,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 8),
                     Center(
                         child: ButtonComponent(
                             text: "Kaydet",

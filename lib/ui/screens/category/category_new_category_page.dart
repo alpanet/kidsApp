@@ -59,6 +59,7 @@ class _CategoryNewCategoryPageState extends State<CategoryNewCategoryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: AppTheme.secondBackgoundColor,
       body: SafeArea(
         child: Column(
@@ -84,7 +85,7 @@ class _CategoryNewCategoryPageState extends State<CategoryNewCategoryPage> {
                         size: 30,
                       ),
                       onPressed: () {
-                        context.router.replaceNamed('mainpage');
+                        context.router.replaceNamed('categoryMainPage');
                       },
                     ),
                   ),
@@ -149,16 +150,20 @@ class _CategoryNewCategoryPageState extends State<CategoryNewCategoryPage> {
                               ),
                             );
                           } else {
-                            return Align(
-                              alignment: Alignment.center,
-                              child: IconButton(
-                                onPressed: _addNewInput,
-                                icon: const Icon(
-                                  Icons.add,
-                                  size: 40,
-                                  color: Colors.green,
+                            return Column(
+                              children: [
+                                Align(
+                                  alignment: Alignment.center,
+                                  child: IconButton(
+                                    onPressed: _addNewInput,
+                                    icon: const Icon(
+                                      Icons.add,
+                                      size: 40,
+                                      color: AppTheme.secondBackgoundColor
+                                    ),
+                                  ),
                                 ),
-                              ),
+                              ],
                             );
                           }
                         },

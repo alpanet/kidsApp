@@ -15,8 +15,7 @@ class AppRouter extends RootStackRouter {
       AutoRoute(page: MainPage.page, path: "mainpage"),
       AutoRoute(page: WatchlistPage.page, path: "watchlistPage"),
       AutoRoute(page: CategoryMainPage.page, path: "categoryMainPage"),
-      AutoRoute(
-          page: CategoryNewCategoryPage.page, path: "categoryNewCategoryPage"),
+      AutoRoute(page: CategoryNewCategoryPage.page, path: "categoryNewCategoryPage"),
       AutoRoute(page: WatchlistPage.page, path: "watchlistPage"),
       AutoRoute(page: WatchNewPage.page, path: "watchNewPage"),
     ]),
