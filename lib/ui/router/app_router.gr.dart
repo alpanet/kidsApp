@@ -20,6 +20,7 @@ import 'package:kids_app/ui/screens/register/register_gathering.dart' as _i6;
 import 'package:kids_app/ui/screens/register/register_otp.dart' as _i7;
 import 'package:kids_app/ui/screens/watchList/watch_new_page.dart' as _i9;
 import 'package:kids_app/ui/screens/watchList/watchlist_page.dart' as _i10;
+import 'package:kids_app/ui/screens/settings/settings.dart' as _i12;
 
 /// generated route for
 /// [_i1.CategoryMainPage]
@@ -207,6 +208,25 @@ class WatchlistPage extends _i11.PageRouteInfo<void> {
     name,
     builder: (data) {
       return const _i10.WatchlistPage();
+    },
+  );
+}
+
+/// generated route for
+/// [_i12.SettingsPage]
+class SettingsPage extends _i11.PageRouteInfo<void> {
+  const SettingsPage({List<_i11.PageRouteInfo>? children})
+      : super(
+          SettingsPage.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SettingsPage';
+
+  static _i11.PageInfo page = _i11.PageInfo(
+    name,
+    builder: (data) {
+      return const _i12.SettingsPage();
     },
   );
 }

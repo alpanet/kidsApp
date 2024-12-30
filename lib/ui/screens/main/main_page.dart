@@ -66,7 +66,7 @@ class MainPage extends StatelessWidget {
                     size: 40,
                   ),
                   onPressed: () {
-                    print("Ayarlar tıklandı");
+                    context.router.replaceNamed('settingsPage');
                   },
                 ),
               ],

@@ -1,0 +1,138 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
+import 'package:kids_app/theme.dart';
+
+@RoutePage()
+class SettingsPage extends StatefulWidget {
+  const SettingsPage({super.key});
+
+  @override
+  State<SettingsPage> createState() => _SettingsPageState();
+}
+
+class _SettingsPageState extends State<SettingsPage> {
+  bool isNotificationsEnabled = false;
+  bool isDarkModeEnabled = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: AppTheme.secondBackgoundColor,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.transparent,
+                      shape: BoxShape.circle,
+                      border: Border.all(
+                        color: Colors.white,
+                        width: 3,
+                      ),
+                    ),
+                    child: IconButton(
+                      icon: const Icon(
+                        Icons.arrow_back_sharp,
+                        color: Colors.white,
+                        size: 30,
+                      ),
+                      onPressed: () {
+                        context.router.replaceNamed('mainpage');
+                      },
+                    ),
+                  ),
+                ),
+                Center(
+                  child: Text(
+                    'Ayarlar',
+                    textAlign: TextAlign.center,
+                    style: AppTheme.generalMenuTitle,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: Container(
+              decoration: const BoxDecoration(
+                color: Color.fromARGB(255, 255, 255, 255),
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20),
+                  topRight: Radius.circular(20),
+                ),
+              ),
+              padding: const EdgeInsets.all(0.0),
+              child: Stack(
+                children: [
+                  ListView(
+                    children: [
+                      const SizedBox(height: 15.0),
+                      ListTile(
+                        leading:
+                            const Icon(Icons.notifications_active, size: 34.0),
+                        title:
+                            Text('Bildirimler', style: AppTheme.settingsTitle),
+                        trailing: Switch(
+                          value: isNotificationsEnabled,
+                          onChanged: (value) {
+                            setState(() {
+                              isNotificationsEnabled = value;
+                            });
+                          },
+                        ),
+                      ),
+                      ListTile(
+                        leading: const Icon(Icons.dark_mode, size: 34.0),
+                        title:
+                            Text('Karanlık Mod', style: AppTheme.settingsTitle),
+                        trailing: Switch(
+                          value: isDarkModeEnabled,
+                          onChanged: (value) {
+                            setState(() {
+                              isDarkModeEnabled = value;
+                            });
+                          },
+                        ),
+                      ),
+                      ListTile(
+                        leading: const Icon(Icons.star, size: 34.0),
+                        title: Text('Uygulamayı Değerlendir',
+                            style: AppTheme.settingsTitle),
+                      ),
+                      ListTile(
+                        leading: const Icon(Icons.share, size: 34.0),
+                        title: Text('Uygulamayı Paylaş',
+                            style: AppTheme.settingsTitle),
+                      ),
+                      ListTile(
+                        leading: const Icon(Icons.lock_person, size: 34.0),
+                        title: Text('Şartlar ve Koşullar',
+                            style: AppTheme.settingsTitle),
+                      ),
+                      ListTile(
+                        leading: const Icon(Icons.mail, size: 34.0),
+                        title: Text('İletişim', style: AppTheme.settingsTitle),
+                      ),
+                      ListTile(
+                        leading: const Icon(Icons.logout, size: 34.0),
+                        title: Text('Çıkış Yap', style: AppTheme.settingsTitle),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

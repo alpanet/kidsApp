@@ -98,4 +98,11 @@ class AppTheme {
         color: secondTextColor,
         fontFamily: 'Gentona',
       );
+
+  static TextStyle get settingsTitle => const TextStyle(
+        fontSize: 24,
+        fontWeight: FontWeight.w500,
+        color: secondTextColor,
+        fontFamily: 'Gentona',
+      );
 }

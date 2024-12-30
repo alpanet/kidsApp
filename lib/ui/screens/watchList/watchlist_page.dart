@@ -69,22 +69,28 @@ class WatchlistPage extends StatelessWidget {
               child: Stack(
                 children: [
                   categorys.isEmpty
-                      ? const Column(
+                      ? Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(
-                              Icons.add_circle,
-                              color: Colors.black,
-                              size: 80,
+                            InkWell(
+                              child: const Icon(
+                                Icons.add_circle,
+                                color: AppTheme.secondBackgoundColor,
+                                size: 80,
+                              ),
+                              onTap: () {
+                            context.router.replaceNamed('watchNewPage');
+                          },
                             ),
-                            SizedBox(height: 16),
-                            Text(
-                              'Henüz bir izlem listeniz yok. Hemen oluşturmaya başla',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16,
+                            const SizedBox(height: 16),
+                            Center(
+                              child: Padding(
+                                padding: const EdgeInsets.only(top: 12.0, left: 38.0, right: 38.0),
+                                child: Text(
+                                  'Henüz bir izlem listeniz yok. Hemen oluşturmaya başla',
+                                  textAlign: TextAlign.center,
+                                  style: AppTheme.secondaryButtonText,
+                                ),
                               ),
                             ),
                           ],
