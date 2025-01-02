@@ -18,9 +18,9 @@ class CategoryNewCategoryPage extends StatefulWidget {
 
 class _CategoryNewCategoryPageState extends State<CategoryNewCategoryPage> {
   File? _uploadedImage;
+  String? _thumbnailUrl;
 
   final List<TextEditingController> _controllers = [TextEditingController()];
-
   final TextEditingController _listeAdiController = TextEditingController();
 
   void _handleImageSelected(File image) {
@@ -54,6 +54,19 @@ class _CategoryNewCategoryPageState extends State<CategoryNewCategoryPage> {
     }
     _listeAdiController.dispose();
     super.dispose();
+  }
+
+  String getThumbnailUrl(String url) {
+    final youtubeRegex = RegExp(
+        r"(https?://)?(www\.)?(youtube\.com|youtu\.be|youtube-nocookie\.com)/(watch\?v=|embed/|v/|.*?v=|)([a-zA-Z0-9_-]{11})");
+    final match = youtubeRegex.firstMatch(url);
+    if (match != null) {
+      final videoId = match.group(5);
+      if (videoId != null) {
+        return 'https://img.youtube.com/vi/$videoId/0.jpg';
+      }
+    }
+    return '';
   }
 
   @override
@@ -115,7 +128,10 @@ class _CategoryNewCategoryPageState extends State<CategoryNewCategoryPage> {
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
                   children: [
-                    ImageUploadWidget(onImageSelected: _handleImageSelected),
+                    ImageUploadWidget(
+                      onImageSelected: _handleImageSelected,
+                      thumbnailUrl: _uploadedImage is File ? _uploadedImage?.path : _thumbnailUrl,
+                    ),
                     const SizedBox(height: 10),
                     TextInputComponent(
                       label: 'Kategori Adı',
@@ -147,6 +163,19 @@ class _CategoryNewCategoryPageState extends State<CategoryNewCategoryPage> {
                                 onTrailingIconPressed: () {
                                   _moveInput(index);
                                 },
+                                onChanged: (value) {
+                                  final thumbnailUrl = getThumbnailUrl(value);
+                                  if (thumbnailUrl.isNotEmpty) {
+                                    setState(() {
+                                      _thumbnailUrl = thumbnailUrl;
+                                    });
+                                  }
+                                  else{
+                                    setState(() {
+                                      _thumbnailUrl = null;
+                                    });
+                                  }
+                                },
                               ),
                             );
                           } else {
@@ -159,7 +188,7 @@ class _CategoryNewCategoryPageState extends State<CategoryNewCategoryPage> {
                                     icon: const Icon(
                                       Icons.add,
                                       size: 40,
-                                      color: AppTheme.secondBackgoundColor
+                                      color: AppTheme.secondBackgoundColor,
                                     ),
                                   ),
                                 ),

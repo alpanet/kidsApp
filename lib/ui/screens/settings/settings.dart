@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:kids_app/theme.dart';
+import 'package:kids_app/services/notification_service.dart';
 
 @RoutePage()
 class SettingsPage extends StatefulWidget {
@@ -12,7 +13,25 @@ class SettingsPage extends StatefulWidget {
 
 class _SettingsPageState extends State<SettingsPage> {
   bool isNotificationsEnabled = false;
-  bool isDarkModeEnabled = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadNotificationPreference();
+  }
+
+  void _loadNotificationPreference() async {
+    final notificationService = NotificationService();
+    bool preference = await notificationService.getNotificationPreference();
+    setState(() {
+      isNotificationsEnabled = preference;
+    });
+  }
+
+  void _saveNotificationPreference(bool value) async {
+    final notificationService = NotificationService();
+    await notificationService.saveNotificationPreference(value);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -82,23 +101,12 @@ class _SettingsPageState extends State<SettingsPage> {
                             Text('Bildirimler', style: AppTheme.settingsTitle),
                         trailing: Switch(
                           value: isNotificationsEnabled,
+                          activeColor: AppTheme.secondBackgoundColor,
                           onChanged: (value) {
                             setState(() {
                               isNotificationsEnabled = value;
                             });
-                          },
-                        ),
-                      ),
-                      ListTile(
-                        leading: const Icon(Icons.dark_mode, size: 34.0),
-                        title:
-                            Text('Karanlık Mod', style: AppTheme.settingsTitle),
-                        trailing: Switch(
-                          value: isDarkModeEnabled,
-                          onChanged: (value) {
-                            setState(() {
-                              isDarkModeEnabled = value;
-                            });
+                            _saveNotificationPreference(value);
                           },
                         ),
                       ),
