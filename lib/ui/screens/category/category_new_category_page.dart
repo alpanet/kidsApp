@@ -159,7 +159,7 @@ class _CategoryNewCategoryPageState extends State<CategoryNewCategoryPage> {
                                 controller: _controllers[index],
                                 initialLeadingIcon: Icons.visibility,
                                 alternateLeadingIcon: Icons.visibility_off,
-                                trailingIcon: Icons.swap_vert,
+                                trailingIcon: Icons.vertical_align_bottom,
                                 onTrailingIconPressed: () {
                                   _moveInput(index);
                                 },

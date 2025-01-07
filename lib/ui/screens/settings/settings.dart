@@ -96,7 +96,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       const SizedBox(height: 15.0),
                       ListTile(
                         leading:
-                            const Icon(Icons.notifications_active, size: 34.0),
+                            const Icon(Icons.notifications_active_outlined, size: 34.0),
                         title:
                             Text('Bildirimler', style: AppTheme.settingsTitle),
                         trailing: Switch(
@@ -111,26 +111,26 @@ class _SettingsPageState extends State<SettingsPage> {
                         ),
                       ),
                       ListTile(
-                        leading: const Icon(Icons.star, size: 34.0),
+                        leading: const Icon(Icons.star_border_outlined, size: 34.0),
                         title: Text('Uygulamayı Değerlendir',
                             style: AppTheme.settingsTitle),
                       ),
                       ListTile(
-                        leading: const Icon(Icons.share, size: 34.0),
+                        leading: const Icon(Icons.share_outlined, size: 34.0),
                         title: Text('Uygulamayı Paylaş',
                             style: AppTheme.settingsTitle),
                       ),
                       ListTile(
-                        leading: const Icon(Icons.lock_person, size: 34.0),
+                        leading: const Icon(Icons.lock_person_outlined, size: 34.0),
                         title: Text('Şartlar ve Koşullar',
                             style: AppTheme.settingsTitle),
                       ),
                       ListTile(
-                        leading: const Icon(Icons.mail, size: 34.0),
+                        leading: const Icon(Icons.mail_outline, size: 34.0),
                         title: Text('İletişim', style: AppTheme.settingsTitle),
                       ),
                       ListTile(
-                        leading: const Icon(Icons.logout, size: 34.0),
+                        leading: const Icon(Icons.logout_outlined, size: 34.0),
                         title: Text('Çıkış Yap', style: AppTheme.settingsTitle),
                       ),
                     ],

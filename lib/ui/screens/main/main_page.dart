@@ -39,7 +39,7 @@ class MainPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.all(24.0),
+            padding: const EdgeInsets.only(left:24.0, top:24.0, right:24.0, bottom: 5.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -92,20 +92,26 @@ class MainPage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.all(16.0),
+                        padding: const EdgeInsets.all(13.0),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              'Uygulamayı Özelleştir',
-                              style: AppTheme.mainpageTitle,
+                            Padding(
+                              padding: const EdgeInsets.only(left: 8.0),
+                              child: Text(
+                                'Uygulamayı Özelleştir',
+                                style: AppTheme.mainpageTitle,
+                              ),
                             ),
-                            const SizedBox(height: 8),
-                            Text(
-                              'Çocuğunuz için en iyisini siz seçin ve izlemeye başlayın.',
-                              style: AppTheme.mainpageSubTitle,
+                            const SizedBox(height: 5),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 8.0),
+                              child: Text(
+                                'Çocuğunuz için en iyisini siz seçin ve izlemeye başlayın.',
+                                style: AppTheme.mainpageSubTitle,
+                              ),
                             ),
-                            const SizedBox(height: 20),
+                            const SizedBox(height: 10),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
@@ -132,7 +138,6 @@ class MainPage extends StatelessWidget {
                                   onPressed: () {
                                     context.router
                                         .replaceNamed('watchlistPage');
-                                    ;
                                   },
                                   icon: const Icon(Icons.tv, size: 20),
                                   label: const Text('Yeni İzlem'),
@@ -158,7 +163,7 @@ class MainPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 15),
+                    const SizedBox(height: 10),
                     Expanded(
                       child: CustomScrollView(
                         slivers: [
@@ -207,7 +212,7 @@ class MainPageListCardComponent extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.only(left: 8.0),
+          padding: const EdgeInsets.only(left: 1.0),
           child: Text(
             title,
             style: AppTheme.mainpageCategoryTitle,

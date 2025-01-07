@@ -1,21 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
   static ThemeData get theme {
     return ThemeData(
       primarySwatch: Colors.blue,
-      textTheme: const TextTheme(
-        // No need for 'const' here
-        headlineLarge: TextStyle(
+      textTheme: TextTheme(
+        headlineLarge: GoogleFonts.nunito(
           fontSize: 36,
           fontWeight: FontWeight.bold,
           color: Colors.white,
-          fontFamily: 'Gentona',
         ),
-        bodyLarge: TextStyle(
+        bodyLarge: GoogleFonts.nunito(
           fontSize: 18,
           color: Colors.white,
-          fontFamily: 'Gentona',
         ),
       ),
     );
@@ -37,72 +35,74 @@ class AppTheme {
   static const Color primaryTextColor = Color.fromARGB(255, 255, 255, 255);
   static const Color secondTextColor = Color.fromARGB(255, 0, 0, 0);
 
-  static TextStyle get onboardingTitle => const TextStyle(
+  static TextStyle get onboardingTitle => GoogleFonts.nunito(
         fontSize: 36,
         fontWeight: FontWeight.bold,
         color: primaryTextColor,
-        fontFamily: 'Gentona',
       );
 
-  static TextStyle get onboardingSubTitle => const TextStyle(
+  static TextStyle get onboardingSubTitle => GoogleFonts.nunito(
         fontSize: 18,
         color: primaryTextColor,
-        fontFamily: 'Gentona',
       );
 
-  static TextStyle get primaryButtonText => const TextStyle(
+  static TextStyle get primaryButtonText => GoogleFonts.nunito(
         fontSize: 23,
         color: primaryTextColor,
         fontWeight: FontWeight.normal,
-        fontFamily: 'Gentona',
       );
 
-  static TextStyle get secondaryButtonText => const TextStyle(
+  static TextStyle get secondaryButtonText => GoogleFonts.nunito(
         fontSize: 23,
         color: secondTextColor,
         fontWeight: FontWeight.normal,
-        fontFamily: 'Gentona',
       );
 
-  static TextStyle get generalTitle => const TextStyle(
+  static TextStyle get generalTitle => GoogleFonts.nunito(
         fontSize: 28,
         fontWeight: FontWeight.bold,
         color: secondTextColor,
-        fontFamily: 'Gentona',
       );
 
-  static TextStyle get generalMenuTitle => const TextStyle(
+  static TextStyle get generalMenuTitle => GoogleFonts.nunito(
         fontSize: 28,
         fontWeight: FontWeight.bold,
         color: primaryTextColor,
-        fontFamily: 'Gentona',
       );
-  
-  static TextStyle get mainpageTitle => const TextStyle(
+
+  static TextStyle get mainpageTitle => GoogleFonts.nunito(
         fontSize: 20,
         fontWeight: FontWeight.normal,
         color: secondTextColor,
-        fontFamily: 'Gentona',
       );
 
-  static TextStyle get mainpageSubTitle => const TextStyle(
+  static TextStyle get mainpageSubTitle => GoogleFonts.nunito(
         fontSize: 12,
         fontWeight: FontWeight.normal,
         color: secondTextColor,
-        fontFamily: 'Gentona',
       );
-  
-  static TextStyle get mainpageCategoryTitle => const TextStyle(
+
+  static TextStyle get mainpageCategoryTitle => GoogleFonts.nunito(
         fontSize: 20,
         fontWeight: FontWeight.bold,
         color: secondTextColor,
-        fontFamily: 'Gentona',
       );
 
-  static TextStyle get settingsTitle => const TextStyle(
+  static TextStyle get settingsTitle => GoogleFonts.nunito(
         fontSize: 24,
         fontWeight: FontWeight.w500,
         color: secondTextColor,
-        fontFamily: 'Gentona',
+      );
+
+  static TextStyle get snackBarContent => GoogleFonts.nunito(
+        fontSize: 15,
+        fontWeight: FontWeight.w700,
+        color: const Color.fromARGB(255, 255, 255, 255),
+      );
+
+  static TextStyle get watchPageCardTitle => GoogleFonts.nunito(
+        fontSize: 14,
+        fontWeight: FontWeight.bold,
+        color: secondTextColor,
       );
 }

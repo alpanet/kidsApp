@@ -61,7 +61,7 @@ class MovieCard extends StatelessWidget {
                           width: double.infinity,
                           height: 180,
                           color: const Color.fromARGB(255, 255, 255, 255),
-                          child: Icon(Icons.error, color: Colors.red),
+                          child: const Icon(Icons.error, color: Colors.red),
                         );
                       },
                     ),
@@ -136,7 +136,7 @@ class MovieCardList extends StatelessWidget {
             final movie = movies[index];
 
             return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              padding: const EdgeInsets.symmetric(horizontal: 0.1),
               child: SizedBox(
                 width: MediaQuery.of(context).size.width * 0.9,
                 child: MovieCard(
