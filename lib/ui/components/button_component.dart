@@ -13,7 +13,7 @@ class ButtonComponent extends StatelessWidget {
     super.key,
     required this.text,
     required this.onPressed,
-    this.color = const Color(0xFF6F853E),
+    this.color = AppTheme.secondBackgoundColor,
     this.textStyle,
     this.borderRadius = 8.0,
     this.enabled = true,

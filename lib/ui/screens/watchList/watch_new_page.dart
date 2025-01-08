@@ -21,13 +21,13 @@ class _WatchNewPageState extends State<WatchNewPage> {
       "videoId": "Kategori 1",
       "videoStatus": true,
       "imageUrl": "https://img.youtube.com/vi/Va7gnpMnaQ8/maxresdefault.jpg",
-      "text": "Video 1",
+      "text": "VideoVideoVideo 1",
     },
     {
       "videoId": "Kategori 1",
       "videoStatus": true,
       "imageUrl": "https://img.youtube.com/vi/Va7gnpMnaQ8/maxresdefault.jpg",
-      "text": "Video 2",
+      "text": "VideoVideo 2",
     },
     {
       "videoId": "Kategori 1",

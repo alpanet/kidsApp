@@ -83,7 +83,7 @@ class CategoryMainPage extends StatelessWidget {
           Expanded(
             child: Container(
               decoration: const BoxDecoration(
-                color: Color.fromARGB(255, 255, 255, 255),
+                color: AppTheme.primaryBackgoundColor,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20),
                   topRight: Radius.circular(20),
@@ -123,7 +123,7 @@ class CategoryMainPage extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: Container(
                         height: 80,
-                        color: Colors.white,
+                        color: AppTheme.primaryBackgoundColor,
                         padding: const EdgeInsets.symmetric(
                             horizontal: 90.0, vertical: 10.0),
                         child: ButtonComponent(

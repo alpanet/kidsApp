@@ -88,7 +88,7 @@ class MainPage extends StatelessWidget {
                   children: [
                     Container(
                       decoration: BoxDecoration(
-                        color: const Color(0xFFCDD7B6),
+                        color: AppTheme.thirdBackgoundColor,
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: Padding(
@@ -123,8 +123,8 @@ class MainPage extends StatelessWidget {
                                   icon: const Icon(Icons.layers, size: 20),
                                   label: const Text('Yeni Kategori'),
                                   style: ElevatedButton.styleFrom(
-                                    backgroundColor: const Color(0xFF6D8F5E),
-                                    foregroundColor: Colors.white,
+                                    backgroundColor: AppTheme.fourthBackgoundColor,
+                                    foregroundColor: AppTheme.primaryTextColor,
                                     padding: const EdgeInsets.symmetric(
                                       vertical: 10,
                                       horizontal: 20,
