@@ -130,7 +130,9 @@ class _CategoryNewCategoryPageState extends State<CategoryNewCategoryPage> {
                   children: [
                     ImageUploadWidget(
                       onImageSelected: _handleImageSelected,
-                      thumbnailUrl: _uploadedImage is File ? _uploadedImage?.path : _thumbnailUrl,
+                      thumbnailUrl: _uploadedImage is File
+                          ? _uploadedImage?.path
+                          : _thumbnailUrl,
                     ),
                     const SizedBox(height: 10),
                     TextInputComponent(
@@ -169,8 +171,7 @@ class _CategoryNewCategoryPageState extends State<CategoryNewCategoryPage> {
                                     setState(() {
                                       _thumbnailUrl = thumbnailUrl;
                                     });
-                                  }
-                                  else{
+                                  } else {
                                     setState(() {
                                       _thumbnailUrl = null;
                                     });
@@ -200,14 +201,27 @@ class _CategoryNewCategoryPageState extends State<CategoryNewCategoryPage> {
                     ),
                     const SizedBox(height: 10),
                     ButtonComponent(
-                        text: "Kaydet",
-                        onPressed: () {
-                          print("Kaydet pressed!");
-                          print("Liste Adı: ${_listeAdiController.text}");
-                          for (var controller in _controllers) {
-                            print("Input Value: ${controller.text}");
-                          }
-                        })
+                      text: "Kaydet",
+                      onPressed: () {
+                        final listName = _listeAdiController.text;
+                        final videoList = _controllers.map((controller) {
+                          final videoUrl = controller.text;
+                          final thumbnailUrl = getThumbnailUrl(videoUrl);
+
+                          return {
+                            "id": UniqueKey().toString(),
+                            "videoUrl": videoUrl,
+                            "videoThumbnailUrl": thumbnailUrl,
+                          };
+                        }).toList();
+
+                        final jsonData = {
+                          "list_name": listName,
+                          "videoList": videoList,
+                        };
+                        print(jsonData);
+                      },
+                    )
                   ],
                 ),
               ),

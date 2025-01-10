@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kids_app/ui/constants/colors.dart';
+import 'package:kids_app/theme.dart';
 
 class TextInputComponent extends StatelessWidget {
   final String? label;
@@ -52,7 +52,7 @@ class TextInputComponent extends StatelessWidget {
             contentPadding:
                 const EdgeInsets.symmetric(vertical: 12, horizontal: 5),
             filled: true,
-            fillColor: greyColor,
+            fillColor: AppTheme.primaryBackgoundColor,
             focusedBorder: border.copyWith(
               borderSide: const BorderSide(color: Colors.grey, width: 0.1),
             ),

@@ -86,6 +86,7 @@ class _RegisterOtpState extends State<RegisterOtp> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               ButtonComponent(
+                color: AppTheme.thirdBackgoundColor,
                 text: "Tekrar Gönder",
                 enabled: _isButtonEnabled,
                 onPressed: _isButtonEnabled ? _onResendPressed : null,

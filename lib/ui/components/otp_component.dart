@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kids_app/theme.dart';
 
 class OtpInputComponent extends StatefulWidget {
   final ValueChanged<String> onOtpChanged;
@@ -47,7 +48,7 @@ class _OtpInputComponentState extends State<OtpInputComponent> {
               counterText: "",
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8.0),
-                borderSide: BorderSide(color: Colors.grey.shade300),
+                borderSide: const BorderSide(color: AppTheme.fourthBackgoundColor),
               ),
               filled: true,
               fillColor: Colors.white,

@@ -22,60 +22,70 @@ class _WatchNewPageState extends State<WatchNewPage> {
       "videoStatus": true,
       "imageUrl": "https://img.youtube.com/vi/Va7gnpMnaQ8/maxresdefault.jpg",
       "text": "VideoVideoVideo 1",
+      "duration": 215
     },
     {
       "videoId": "Kategori 1",
       "videoStatus": true,
       "imageUrl": "https://img.youtube.com/vi/Va7gnpMnaQ8/maxresdefault.jpg",
       "text": "VideoVideo 2",
+      "duration": 215
     },
     {
       "videoId": "Kategori 1",
       "videoStatus": true,
       "imageUrl": "https://img.youtube.com/vi/Va7gnpMnaQ8/maxresdefault.jpg",
       "text": "Video 3",
+      "duration": 215
     },
     {
       "videoId": "Kategori 1",
       "videoStatus": true,
       "imageUrl": "https://img.youtube.com/vi/Va7gnpMnaQ8/maxresdefault.jpg",
       "text": "Video 4",
+      "duration": 215
     },
     {
       "videoId": "Kategori 1",
       "videoStatus": true,
       "imageUrl": "https://img.youtube.com/vi/Va7gnpMnaQ8/maxresdefault.jpg",
       "text": "Video 5",
+      "duration": 215
     },
     {
       "videoId": "Kategori 2",
       "videoStatus": true,
       "imageUrl": "https://img.youtube.com/vi/Va7gnpMnaQ8/maxresdefault.jpg",
       "text": "Video 1",
+      "duration": 215
     },
     {
       "videoId": "Kategori 2",
       "videoStatus": true,
       "imageUrl": "https://img.youtube.com/vi/Va7gnpMnaQ8/maxresdefault.jpg",
       "text": "Video 2",
+      "duration": 215
     },
     {
       "videoId": "Kategori 3",
       "videoStatus": true,
       "imageUrl": "https://img.youtube.com/vi/Va7gnpMnaQ8/maxresdefault.jpg",
       "text": "Video 1",
+      "duration": 215
     },
     {
       "videoId": "Kategori 3",
       "videoStatus": true,
       "imageUrl": "https://img.youtube.com/vi/Va7gnpMnaQ8/maxresdefault.jpg",
       "text": "Video 2",
+      "duration": 215
     },
     {
       "videoId": "Kategori 3",
       "videoStatus": true,
       "imageUrl": "https://img.youtube.com/vi/Va7gnpMnaQ8/maxresdefault.jpg",
       "text": "Video 3",
+      "duration": 215
     },
   ];
 

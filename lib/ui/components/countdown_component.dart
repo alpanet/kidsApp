@@ -1,6 +1,6 @@
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
-import 'package:kids_app/ui/constants/colors.dart';
+import 'package:kids_app/theme.dart';
 
 class CountdownComponent extends StatefulWidget {
   final Function onCompleteCallback;
@@ -30,7 +30,7 @@ class _CountdownComponentState extends State<CountdownComponent> {
       height: MediaQuery.of(context).size.height / 2.5,
       ringColor: Colors.grey[300]!,
       ringGradient: null,
-      fillColor: primaryColor,
+      fillColor: AppTheme.secondBackgoundColor,
       fillGradient: null,
       backgroundColor: Colors.transparent,
       backgroundGradient: null,
@@ -38,7 +38,7 @@ class _CountdownComponentState extends State<CountdownComponent> {
       strokeCap: StrokeCap.round,
       textStyle: const TextStyle(
         fontSize: 33.0,
-        color: primaryColor,
+        color: AppTheme.secondBackgoundColor,
         fontWeight: FontWeight.bold,
       ),
       textAlign: TextAlign.center,
